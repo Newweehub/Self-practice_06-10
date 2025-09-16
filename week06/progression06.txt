@@ -1,0 +1,61 @@
+1.
+- greet รับค่า name และฟังก์ชัน 2 ตัว formatter, formatter2
+- ทำงานโดยเอา name ไปผ่าน formatter ก่อน -> แล้วส่งผลลัพธ์ไปให้ formatter2 อีกที
+- ตัวอย่าง:
+  - greet('Alice', sayHi, shout)
+     -> sayHi('Alice') → "Hi Alice"
+     -> shout("Hi Alice") → "HI ALICE!!!"
+     -> Output: "HI ALICE!!!"
+  - greet('Bob', sayHi, whisper)
+     -> sayHi('Bob') → "Hi Bob"
+     -> whisper("Hi Bob") → "hi bob..."
+     -> Output: "hi bob..."
+
+2.
+- y เดิมเป็น 100 แต่ถูกเปลี่ยนเป็น 10 ข้างใน getScore (เพราะไม่ได้ใช้ let/const) -> เลยไปแก้ค่าของ global variable
+- doSomething เป็นฟังก์ชันภายใน getScore เข้าถึงตัวแปรทั้งหมด (y, sum, x, mid, final) ได้
+- getScore(2) คำนวณ 40 + 30 + 2 + 10 + 2 = 84 -> Output: 84
+- การเรียก doSomething() ข้างนอกจะ error เพราะเป็น local function ที่ประกาศภายในเท่านั้น
+
+3.
+- idGenerator สร้างตัวนับ (count = 1)
+- ฟังก์ชัน increment จะเพิ่มค่า count ทุกครั้งที่ถูกเรียก
+- idGen เป็น generator ตัวแรก -> เริ่มจาก 1, 2, 3
+- idGen2 เป็น generator ใหม่ -> เริ่มนับจาก 1 อีกครั้ง (อิสระจาก idGen)
+
+4.
+- outerFunction(a) สร้าง innerFunction(b) ซึ่งเข้าถึงตัวแปร a ได้
+- outerFunction return ฟังก์ชัน innerFunction ออกมา -> เกิด closure
+- ตัวอย่าง:
+  - outerFunction(5) -> ได้ฟังก์ชัน innerFunction(b) ที่จำ a=5 ไว้
+    -> addFive(3) -> 5 + 3 = 8
+  - outerFunction(10) -> ได้ฟังก์ชัน innerFunction(b) ที่จำ a=10 ไว้
+    -> addTen(2) -> 10 + 2 = 12
+
+5.
+- multiplier(n) รับค่าตัวคูณ n
+- คืนฟังก์ชันที่เมื่อเรียกจะนำ num มาคูณกับ n
+- multiplier(2) -> ฟังก์ชันคูณ 2
+- multiplier(3) -> ฟังก์ชันคูณ 3
+
+
+Project
+Lesson 1: Arrays, Objects, and Functions
+1. สร้างตัวแปร quotes
+- ประกาศ array ว่าง เพื่อเก็บ quote objects
+- แต่ละ object จะมี id, content, และ author
+2. ฟังก์ชัน addQuote
+- รับ object ของ quote มา (เช่น {id:1, content:'...', author:'...'})
+- ใช้ push() เพื่อเพิ่ม object เข้าไปใน array quotes
+3. ฟังก์ชัน deleteQuote
+- รับ id ของ quote ที่ต้องการลบ
+- ใช้ findIndex() หา index ของ quote ที่มี id ตรงกัน
+- ถ้าเจอ (index !== -1) -> ลบออกด้วย splice()
+4. ฟังก์ชัน updateQuote
+- รับ id และ object ที่มีข้อมูลใหม่ (เช่น {content: '...', author: '...'})
+- ใช้ find() หา quote ที่มี id ตรงกัน
+- ถ้าไม่เจอ -> return 'not found id'
+- ถ้าเจอ -> อัปเดต content และ/หรือ author เฉพาะที่ถูกส่งมา
+5. ฟังก์ชัน getAllQuotes
+- คืนค่า array quotes ทั้งหมด (ใช้แสดงรายการที่มีอยู่ในปัจจุบัน)
+6. ทดสอบการทำงาน
