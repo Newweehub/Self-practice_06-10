@@ -1,0 +1,62 @@
+1. DOM Structure & Nodes
+1.1
+- ดึงแท็ก <html> ทั้งหมด (root element) ของหน้าเว็บมาแสดง
+1.2
+- ตรวจสอบว่า nodeName ของ <body> เป็น "BODY" จริงไหม
+1.3
+- เลือก <title> ที่อยู่ใน <head>
+- ใช้ .nodeType เพื่อตรวจสอบว่าเป็น node ประเภทไหน
+  - ELEMENT_NODE = แท็ก HTML
+  - ATTRIBUTE_NODE = attribute ของแท็ก
+  - TEXT_NODE = ข้อความที่อยู่ในแท็ก
+ -> <title> เป็น ELEMENT_NODE
+
+2. Query & Child Elements
+2.1
+- เลือก <div id="demo">
+- แสดงจำนวน child nodes ทั้งหมด (รวมช่องว่าง, ข้อความ, element)
+2.2
+- วนลูปทุก node ข้างใน <div>
+- แสดงชื่อ node (DIV, #text, ฯลฯ) และประเภท (1=element, 3=text ฯลฯ)
+2.3
+- เลือก เฉพาะ element ที่อยู่ข้างใน <div>
+- แสดงชื่อแท็ก (เช่น P, SPAN, ฯลฯ)
+
+3. Create & Append
+3.1
+- สร้าง <p> ใหม่ พร้อม id="int142" และข้อความ "INT142"
+- เอาไปใส่ใน <div id="subject">
+3.2
+- ใส่ style ให้ <p> เป็นสีน้ำเงิน
+3.3
+- อ่านค่า attribute (id, style)
+
+4. Text Content vs InnerHTML
+4.1
+- ใช้ 3 วิธีในการดึงข้อมูลจาก <div>
+  - innerHTML = ดึง โค้ด HTML ทั้งหมด ข้างใน
+  - innerText = ดึง ข้อความที่มองเห็น บนหน้าเว็บ
+  - textContent = ดึง ข้อความทั้งหมด ไม่สนว่าจะซ่อนอยู่ไหม
+4.2
+- สร้าง <p> ใหม่ แล้วลองใส่ค่าด้วย 3 วิธี
+  - innerHTML → แสดงข้อความเอียงจริงๆ
+  - innerText → แสดงเป็นตัวอักษร "<i>Italic Content</i>"
+  - textContent → แสดงเป็นตัวอักษร "<i>Italic Content</i>"
+
+5. Traversal
+5.1
+- เลือก <ul id="drink">
+- วนลูป <li> ข้างในทั้งหมด แล้วแสดงชื่อเครื่องดื่ม
+5.2
+- เลือก <li> ลำดับที่ 2 (ตำแหน่ง [1])
+- แล้วแสดง:
+  - previousElementSibling = <li> ก่อนหน้า
+  - nextElementSibling = <li> ถัดไป
+  - parentElement = <ul>
+
+6. Bonus Challenge
+6.1
+- สร้าง <li>Milk</li> แล้วใส่ต่อท้าย <ul id="drink">
+6.2
+- วนลูปเช็ค <li> แต่ละตัว
+- ถ้าเจอข้อความ "Chocolate" -> ลบออกจาก <ul>
