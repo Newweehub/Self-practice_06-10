@@ -1,0 +1,71 @@
+//source-code.js
+1. Querying Elements
+1.1
+- เลือก <ul> ที่มี id="appetizer" แล้วแสดงด้วย console
+1.2
+- เลือก <li> ตัวแรกที่มี class="meat" แล้ว log เฉพาะข้อความข้างใน
+1.3
+- เลือก <li> ทั้งหมดที่มี class="vegan" (เป็น NodeList) แล้ววนลูป log แต่ละอัน
+
+2. Traversing the DOM
+2.1
+- เลือก <li> แรกใน <ul id="appetizer"> ด้วย firstElementChild
+- ใช้ while loop และ nextElementSibling เพื่อไล่ไปเรื่อยๆ จน <li> หมด
+2.2
+- เลือก <ul id="soup">
+- ไล่เช็ค <li> แต่ละตัวว่ามีข้อความ "Beef Soup" ไหม ถ้าใช่ก็เก็บในตัวแปร beefSoup แล้วแสดงผล
+
+3. Adding & Removing Elements
+3.1
+- ลบ <li> ที่มีข้อความ "Vegetable Soup" ออกจาก <ul id="soup">
+3.2
+- สร้าง <li class="vegan">Pumpkin Soup</li>
+- เพิ่มไปท้ายสุดของ <ul id="soup">
+3.3
+- สร้าง <li class="meat">Duck Soup</li>
+- แทรกเข้าไปก่อน <li> ที่เป็น "Beef Soup"
+3.4
+- สร้าง <li class="meat">Chicken Soup</li>
+- ใช้ replaceChild แทนที่ <li> ที่เป็น "Pork Soup"
+
+4. Working with Forms
+4.1
+- เลือก input ที่มี name="fname" แล้ว log ค่า value ออกมา
+4.2
+- ดัก event การ submit ของ form
+- event.preventDefault() -> ป้องกันไม่ให้รีเฟรชหน้าเว็บ
+- ดึงค่าจาก input ชื่อ fname และ lname
+- log ชื่อจริง-นามสกุลออกมาใน console
+
+5. Styling with ClassList
+5.1
+- ผูก event click กับปุ่ม 3 ปุ่ม (Add Border, Remove Border, Toggle Border)
+- ใช้ classList.add/remove/toggle เพื่อเพิ่ม ลบ หรือสลับ class "bordered" ของ <div id="box">
+
+6. Styling with Dataset
+6.1
+- มีปุ่ม 3 ปุ่ม (Red, Green, Blue) โดยแต่ละปุ่มมี data-color กำหนดสีไว้
+- เมื่อกดปุ่ม จะเปลี่ยน backgroundColor ของ <div id="box"> ให้ตรงกับค่าใน dataset
+- ใส่ชื่อสีเป็นตัวอักษรพิมพ์ใหญ่ทั้งหมด (RED, GREEN, BLUE) ในกล่อง
+
+
+//ui.js
+- import ฟังก์ชัน addQuote และ getAllQuotes จากไฟล์ quote.js เพื่อใช้ในไฟล์นี้
+Step 1:
+- สร้างตัวแปร quotes แบบ array ไว้เก็บ object คำคม
+Step 2:
+- เลือก element <div id="quote-list"> จาก HTML มาเก็บไว้ในตัวแปร quoteList เพื่อใช้แสดงคำคมทั้งหมดในหน้าเว็บ
+Step 3:
+- สร้างฟังก์ชัน renderQuotes() โดย:
+  - clear คำคมเก่าๆ ที่อยู่ใน quoteList
+    - ใช้ .children เพื่อดึงลูกทั้งหมดของ quoteList
+    - แปลงเป็น array ด้วย Array.from()
+    - ลบแต่ละ element ออกด้วย removeChild()
+ - ดึงข้อมูลคำคมทั้งหมดที่เคยถูกเพิ่มเข้ามา โดยใช้ฟังก์ชัน getAllQuotes()
+ - วนลูปแสดงคำคมทั้งหมด
+    - สร้าง <p> element ใหม่
+    - ใส่ข้อความในรูปแบบ "คำคม" — ผู้เขียน
+    - เพิ่ม <p> นี้เข้าไปใน quoteList
+Step 4:
+- ใช้ฟังก์ชัน addQuote เพิ่มข้อมูลลงใน quotes array (ใน quote.js)
+- ใช้ฟังก์ชัน renderQuotes() เพื่อแสดงคำคมทั้งหมดที่ถูกเพิ่มไว้ ให้ไปโผล่ในหน้าเว็บ

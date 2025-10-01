@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Manipulation Practice</title>
+  <style>
+    /* Basic styling for practice */
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    ul { margin-bottom: 20px; }
+    #box {
+      width: 150px;
+      height: 150px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid black;
+    }
+    .bordered {
+      border: 5px solid red;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍽️ Menu</h1>
+
+  <!-- Appetizer -->
+  <h2>Appetizer</h2>
+  <ul id="appetizer">
+    <li class="meat">Chicken Wings</li>
+    <li class="vegan">Spring Rolls</li>
+    <li class="meat">Beef Skewers</li>
+    <li class="vegan">Salad Rolls</li>
+  </ul>
+
+  <!-- Soup -->
+  <h2>Soup</h2>
+  <ul id="soup">
+    <li class="vegan">Vegetable Soup</li>
+    <li class="meat">Beef Soup</li>
+    <li class="meat">Pork Soup</li>
+  </ul>
+
+  <!-- Sandwich -->
+  <h2>Sandwich</h2>
+  <ul id="sandwich">
+    <li class="meat">Ham Sandwich</li>
+    <li class="meat">Tuna Sandwich</li>
+    <li class="vegan">Vegetable Sandwich</li>
+  </ul>
+
+  <!-- Form -->
+  <h2>Form</h2>
+  <form id="nameForm">
+    First name: <input type="text" name="fname" value="John"><br><br>
+    Last name: <input type="text" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <!-- Styling box -->
+  <h2>Box Styling</h2>
+  <button id="addBorderBtn">Add Border</button>
+  <button id="removeBorderBtn">Remove Border</button>
+  <button id="toggleBorderBtn">Toggle Border</button>
+
+  <br><br>
+  <button class="colorBtn" data-color="red">Red</button>
+  <button class="colorBtn" data-color="green">Green</button>
+  <button class="colorBtn" data-color="blue">Blue</button>
+
+  <div id="box">BOX</div>
+
+  <!-- JavaScript file -->
+  <script src="./source-code.js"></script>
+</body>
+</html>
