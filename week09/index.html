@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Events Practice</title>
+  <style>
+    body {
+      background-color: aqua;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    div {
+      background-color: green;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #info {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      margin: 5px;
+      padding: 5px;
+    }
+
+    #box {
+      width: 150px;
+      height: 100px;
+      background-color: lightgray;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .bordered {
+      border: 3px solid black;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript DOM & Events Practice</h1>
+
+  <div id="container">
+    <button id="okBtn">OK</button>
+    <p id="hint">Click the button to see magic!</p>
+  </div>
+
+  <a href="https://www.sit.kmutt.ac.th" target="_blank">Visit SIT, KMUTT</a>
+
+  <form action="/action_page.php" id="myForm" style="margin-top: 20px;">
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname" value="John" />
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname" value="Doe" />
+    <input type="submit" value="Submit" />
+  </form>
+
+  <p id="info"></p>
+
+  <input type="text" id="message" placeholder="Type your message..." />
+  <p id="display"></p>
+
+  <div id="box">Color Box</div>
+
+  <button id="clearBtn">Clear</button>
+
+  <script src="./source-code.js"></script>
+</body>
+</html>

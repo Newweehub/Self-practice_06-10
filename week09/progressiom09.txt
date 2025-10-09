@@ -1,0 +1,111 @@
+//source-code.js
+Part 1: Basic Interaction
+1.
+- เมื่อหน้าเว็บโหลดขึ้นมา โปรแกรมจะถามผู้ใช้ผ่าน prompt() ว่าสีโปรดของ user คืออะไร
+- ถ้า user กรอกค่า (ไม่กด Cancel) จะนำค่านั้นไปเปลี่ยนสีพื้นหลัง (backgroundColor) ของ <body>
+- ใช้ toLowerCase() เพื่อป้องกันปัญหาการพิมพ์ตัวพิมพ์ใหญ่ เช่น “Red” หรือ “BLUE”
+2.
+- เลือกปุ่มที่มี id="okBtn"
+- เมื่อคลิกปุ่ม จะเปลี่ยนข้อความใน <p id="hint"> จาก
+ "Click the button to see magic!" -> "You clicked the button!"
+
+Part 2: Event Handling
+3.
+- สร้างฟังก์ชัน sayHello() เพื่อแสดง alert “Welcome to JavaScript!”
+- ผูกฟังก์ชันนี้เข้ากับ event คลิกของปุ่ม
+4.
+- เพิ่ม event listener อีกอันที่จะแสดงข้อความใน console เมื่อคลิก
+5.
+- ลบ listener ของ sayHello() ออก -> ทำให้ตอนคลิกจะไม่เห็น alert อีก
+
+Part 3: Event Bubbling and Capturing
+6.
+- เพิ่ม event listener ให้กับ <button>, <div>, และ <body>
+- parameter ตัวที่ 3 เป็น true -> ใช้ Capturing phase (วิ่งจากบนลงล่าง)
+- เมื่อคลิกปุ่ม <button> ข้อความใน console จะขึ้นเรียงลำดับเป็น:
+  body was clicked
+  div was clicked
+  button was clicked
+- ถ้าเปลี่ยน true เป็น false (หรือไม่ใส่) -> จะเป็น Bubbling phase ซึ่งจะวิ่งจากล่างขึ้นบน
+
+Part 4: Preventing Default Actions
+7.
+- ปกติคลิกลิงก์ <a> จะไปหน้าเว็บอื่น
+- event.preventDefault() ใช้เพื่อ “ยกเลิก” พฤติกรรมปกติของลิงก์
+- แทนที่จะเปิดหน้าเว็บ ระบบจะโชว์ alert “Link was blocked!”
+
+Part 5: Form Handling
+8.
+- ป้องกันไม่ให้ form ถูกส่งออก ด้วย preventDefault()
+9.
+- ตรวจสอบว่า field fname และ lname ถูกกรอกไหม
+- ถ้าเว้นว่าง -> แจ้งเตือน “Please fill all fields!”
+- ถ้ากรอกครบ -> แสดง alert “Hello, [ชื่อ] [นามสกุล]!”
+
+Part 6: Page & Window Events
+10.
+- DOMContentLoaded ทำงานเมื่อ HTML โหลดเสร็จแล้ว
+- แสดงข้อความใน console และเพิ่ม <h3> ที่มีข้อความ “Welcome to my site” ลงในหน้าเว็บ
+11.
+- เมื่อ user ปรับขนาดหน้าต่าง browser (resize)
+- จะแสดงขนาดปัจจุบันของหน้าต่างใน <p id="info">
+12.
+- เมื่อมีการเลื่อนหน้า (scroll)
+- จะแสดงค่าตำแหน่งแกน Y ปัจจุบันใน <p id="info">
+
+Part 7: Mouse Events
+13.
+- เมื่อเมาส์เลื่อนเข้าไปใน <div id="box"> → เปลี่ยนพื้นหลังเป็นสีเหลือง
+14.
+- เมื่อเอาเมาส์ออก -> เปลี่ยนกลับเป็นสีเขียว
+15.
+- ทุกครั้งที่เลื่อนเมาส์ -> แสดงพิกัด X, Y ของตำแหน่งเมาส์ใน <p id="info">
+
+Part 8: Keyboard Events
+16.
+- ทุกครั้งที่ user พิมพ์ในช่อง input (#message)
+- ข้อความที่พิมพ์จะปรากฏแบบ real-time ใต้ช่องใน <p id="display">
+
+Bonus Challenge
+17.
+- เมื่อคลิกปุ่ม “Clear” -> เคลียร์ข้อความในช่อง input และล้างข้อความที่แสดงอยู่ใน <p>
+18.
+- ตรวจจับการคลิกปุ่ม <button> สองครั้ง (double click)
+- แสดงข้อความ “Double click detected!” ใน alert
+
+
+//practice 1
+- เลือกปุ่ม “Create Account” และแท็ก <p> ที่ใช้แสดงข้อความผลลัพธ์
+
+- ผูก event เมื่อ user คลิกปุ่ม
+- ใช้ event.preventDefault() เพื่อป้องกันไม่ให้ฟอร์มส่งข้อมูลไปหน้าอื่น (หยุดการ reload หน้าเว็บ)
+
+- เลือกค่าจากช่องกรอกข้อมูลแต่ละช่อง (#username, #email, #password, #confirm-password)
+- ใช้ .value เพื่อดึงค่าที่ user กรอกออกมา
+- ใช้ .trim() เพื่อตัดช่องว่างหน้า–หลังออก
+
+- ตรวจสอบว่ามีช่องไหนว่างไหม 
+- ถ้ามีช่องไหนว่าง -> แสดงข้อความ “missing some values, please try again” สีแดง ในแท็ก <p>
+- แล้ว return เพื่อหยุดการทำงานของฟังก์ชัน
+
+- ตรวจสอบว่ารหัสผ่าน (password) และยืนยันรหัส (confirm password) มีค่าตรงกันไหม
+- ถ้ารหัสผ่าน 2 ช่องไม่ตรงกัน -> แสดงข้อความ “password and confirm do not match, check again” สีแดง
+- แล้ว return เพื่อหยุดการทำงานของฟังก์ชัน
+
+- ถ้าไม่เข้าเงื่อนไขไหนเลย -> แสดงข้อความ “your data completed” สีเขียว
+
+
+//practice 2
+- เลือก element <input id="keyInput"> จากหน้า HTML แล้วเก็บไว้ในตัวแปรชื่อ keyInput
+
+- เพิ่ม event listener ให้กับ keyInput
+- โดยใช้ 'keyup' หมายถึง เมื่อ user ปล่อยปุ่มคีย์บอร์ดหลังจากกด
+  -> ทุกครั้งที่ user พิมพ์แล้วปล่อยปุ่ม จะเรียกฟังก์ชันทำงาน
+
+- สร้างแท็ก <p> ใหม่ขึ้นมา
+- ถ้า user กดปุ่ม 'Enter' -> ตั้งค่าให้ข้อความใน <p> เป็นสีน้ำเงิน
+- กำหนดข้อความในแท็ก <p> ว่า 'You pressed: <ปุ่มที่กด>'
+
+- เลือก <div id="keyLog"> จากหน้า HTML ซึ่งเป็นพื้นที่แสดงผล
+- นำแท็ก <p> ไปเพิ่มเข้าเป็น child ของ <div id="keyLog">
+  -> เมื่อ user กดแป้นพิมพ์แต่ละครั้ง จะมี <p> ใหม่เพิ่มขึ้นเรื่อยๆ ในหน้าเว็บ
