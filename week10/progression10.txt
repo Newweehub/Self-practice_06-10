@@ -1,0 +1,59 @@
+//source-code.js
+Part 1: Working with Cookies
+1.
+- สร้างคุกกี้ชื่อ user มีค่าเป็น "John" และตั้งอายุไว้ 3 วัน (60 วินาที × 60 นาที × 24 ชั่วโมง × 3 วัน)
+- console.log(document.cookie) พิมพ์ค่าคุกกี้ทั้งหมดในเว็บไซต์ปัจจุบันออกมาในคอนโซล
+2.
+- อัปเดตคุกกี้ชื่อ user ให้มีค่าใหม่เป็น "Alice" (ใช้ชื่อเดิมแต่เปลี่ยนค่า)
+3.
+- นำเข้าคลาส (import { CookieUtil } from "./CookieUtil.js") เพื่อจัดการคุกกี้
+- CookieUtil.set(...) -> สร้างคุกกี้ชื่อ language ค่า "English" และให้หมดอายุใน 5 วันนับจากตอนนี้
+- CookieUtil.get('language') -> อ่านค่าคุกกี้ชื่อ language และแสดงในคอนโซล
+
+Part 2: Working with Local Storage
+4.
+- เก็บข้อมูลใน localStorage ของ browser (จะไม่หายไปเมื่อปิดหน้าเว็บ)
+- setItem('favColor','pink') -> บันทึก key ชื่อ "favColor" มีค่าเป็น "pink"
+- getItem('favColor') -> ดึงค่าที่เก็บไว้ใน key ออกมาเก็บในตัวแปร fcolor
+5.
+- ดึงค่าของ key "count" จาก localStorage
+- ถ้าไม่มีค่า (เป็น null) -> เข้าเว็บครั้งแรก ให้ค่าเริ่มต้นเป็น 1
+- ถ้ามีค่าอยู่แล้ว -> เพิ่มค่า count ขึ้นทีละ 1 ทุกครั้งที่โหลดหน้าใหม่
+- แสดงค่าด้วย alert(counter)
+6.
+- removeItem('favColor') -> ลบ key "favColor" ออกจาก localStorage
+- เมื่อพยายาม getItem('favColor') อีกครั้ง จะได้ค่า null
+
+Part 3: Working with Session Storage
+7.
+- ค่าที่เก็บใน sessionStorage จะอยู่เฉพาะในแท็บปัจจุบันเท่านั้น
+- ถ้าปิดแท็บไปและเปิดหน้าเว็บใหม่ -> ค่าจะหายไปและเริ่มนับใหม่ที่ 1
+8.
+- userInput ดึงค่า username ที่ user กรอกจาก <input id="username">
+- เมื่อคลิกปุ่ม submit -> ถ้า userInput มีค่า -> นำค่า username ไปเก็บใน sessionStorage
+  - ดึงค่าจาก sessionStorage กลับมาแสดงใน <p id="display"> ว่า “Welcome, [username]”
+- เมื่อคลิกปุ่ม submit -> ถ้า userInput ไม่มีค่า -> แสดง 'invalid input' ใน <p id="display">
+- เมื่อปิดแท็บหรือเบราว์เซอร์ ข้อมูลจะหายไป (เพราะเป็น session-based)
+
+
+//practice.js
+- addEventListener('DOMContentLoaded') -> โค้ดในนี้จะทำงานหลังจากหน้า HTML โหลดเสร็จแล้วทั้งหมด
+
+- ให้ตัวแปร submitButton คือปุ่ม “Save”
+- ให้ตัวแปร resetButton คือปุ่ม “Reset”
+
+- ถ้า user เคยเลือกค่าไว้ก่อนหน้า -> ดึงออกมาจาก localStorage
+- ถ้ายังไม่เคยตั้งค่า -> ค่าที่ได้จะเป็น null
+
+- ถ้ามีข้อมูลที่เคยบันทึกไว้ -> เปลี่ยน style ของ <body> ตามนั้น
+  -> ทำให้ user เปิดหน้าเว็บใหม่แล้วเห็นรูปแบบตามที่ตั้งไว้
+
+- เมื่อ user กดปุ่ม “Save” -> ดึงค่าที่ user เลือกจาก <form> (สีพื้นหลัง, สีตัวอักษร, ขนาดตัวอักษร)
+
+- บันทึกค่าที่เลือกไว้ใน localStorage -> ค่าถูกเก็บไว้ใน browser แม้ user จะปิดเว็บ
+
+- เมื่อ user กด “Save” -> หน้าเว็บจะเปลี่ยนสีและขนาดตัวอักษรทันที
+
+- เมื่อ user กดปุ่ม “Reset” -> ลบค่าทั้งหมดที่เคยเก็บไว้ใน localStorage
+
+- ใช้ค่าปัจจุบันของ <form> (ค่าเริ่มต้นของ input) อัปเดต style ของหน้าเว็บให้เหมือนตอนเริ่มต้น
