@@ -1,0 +1,34 @@
+สรุปการฝึกฝน week 6 - 10
+Week 6 – Functions & Closures
+- การทำงานของฟังก์ชันและการส่งฟังก์ชันเป็นพารามิเตอร์ (Higher-order function)
+- การเข้าถึงและเปลี่ยนแปลงตัวแปรภายใน–ภายนอกฟังก์ชัน (Scope & Variable Shadowing)
+- การสร้าง Closure และ Function Factory ที่เก็บค่าตัวแปรไว้ใช้งานภายหลัง
+- การสร้างฟังก์ชันแบบ generator เพื่อผลิตค่าต่อเนื่องอย่างอิสระ
+
+Week 7 – DOM Basics
+- การเข้าถึงและตรวจสอบโครงสร้างของ DOM (Document Object Model)
+- การเลือก element ด้วย querySelector, getElementById, children, childNodes
+- การสร้างและจัดการ element ใหม่ด้วย createElement() และ appendChild()
+- ความแตกต่างระหว่าง innerHTML, innerText, และ textContent
+- การไล่ลำดับ (Traversal) ของ element เช่น parentElement, nextElementSibling
+- การลบ/เพิ่ม element ในรายการ เช่น เพิ่ม <li> ใหม่หรือลบ “Chocolate” ออก
+
+Week 8 – Advanced DOM Manipulation & Modular Code
+- การเลือก element หลายแบบ (เช่น class, id, tag) และการวนลูป NodeList
+- การสร้าง/ลบ/แทนที่ element ในหน้าเว็บแบบ dynamic
+- การทำงานกับฟอร์ม (form, input, submit) และใช้ event.preventDefault()
+- การเปลี่ยน style ด้วย classList.add/remove/toggle
+- ใช้ dataset เพื่ออ่านค่า data-* จาก HTML และนำมาเปลี่ยนสีหรือข้อความ
+- ฝึกเชื่อม logic กับ UI ด้วย DOM manipulation
+
+Week 9 – Events & User Interaction
+- การจัดการ Event Listener (คลิก, กดปุ่ม, keyup, scroll, resize)
+- การเข้าใจ Event Bubbling / Capturing และ preventDefault()
+- การตรวจสอบค่าจากฟอร์ม และแสดงผลด้วย alert() หรือ DOM
+- การตรวจจับ Mouse Events (hover, move, double-click)
+- การตรวจจับ Keyboard Events และแสดงผลแบบ real-time
+
+Week 10 – Web Storage & Cookies
+- Cookies -> การสร้าง, อ่าน, และอัปเดตคุกกี้ พร้อมกำหนดวันหมดอายุ
+- Local Storage -> การบันทึกข้อมูลถาวรใน browser เช่น สีที่ชอบ, จำนวนครั้งเข้าชม
+- Session Storage -> การเก็บข้อมูลเฉพาะ session เช่น ชื่อผู้ใช้ขณะเปิดแท็บ
